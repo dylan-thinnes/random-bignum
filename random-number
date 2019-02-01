@@ -11,6 +11,10 @@ get_block () {
 N=""
 DIGITS="${1:-1}"
 
+while [[ $N -lt 1 ]]; do
+    N="${RANDOM:(-1)}"
+done
+
 while (( ${#N} < $DIGITS )); do
     R=`get_block`
     N="$N$R"
