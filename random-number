@@ -2,7 +2,7 @@
 
 get_block () {
     BLOCK=`od -A n -t u8 -N 1024 -w8 /dev/urandom`
-    echo "$BLOCK" | while read -r line
+    echo "${BLOCK// /0}" | while read -r line
     do
         echo -n "${line:4:20}"
     done
